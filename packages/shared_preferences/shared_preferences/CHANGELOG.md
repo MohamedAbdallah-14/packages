@@ -1,3 +1,8 @@
+## NEXT
+
+* Documents that `SharedPreferencesAsync`/`SharedPreferencesWithCache` do not
+  use key prefixing and that migration does not remove legacy prefixed entries.
+
 ## 2.5.5
 
 * Fixes dartdoc comments that accidentally used HTML.

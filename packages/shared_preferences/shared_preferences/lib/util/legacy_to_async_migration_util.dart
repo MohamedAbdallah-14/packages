@@ -24,6 +24,10 @@ import '../shared_preferences.dart';
 /// which is used to check if the migration has run before, to avoid overwriting
 /// new data going forward. Make sure that there will not be any collisions with
 /// preferences you are or will be setting going forward, or there may be data loss.
+///
+/// Note that this migration copies values into the new preferences system but does
+/// not remove the original entries from the legacy [SharedPreferences] store. If
+/// you want to remove those legacy entries after migration, do so manually.
 Future<void> migrateLegacySharedPreferencesToSharedPreferencesAsyncIfNecessary({
   required SharedPreferences legacySharedPreferencesInstance,
   required SharedPreferencesOptions sharedPreferencesAsyncOptions,

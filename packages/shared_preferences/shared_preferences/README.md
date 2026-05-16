@@ -184,6 +184,15 @@ import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
     );
 ```
 
+Note that `SharedPreferencesAsync` and `SharedPreferencesWithCache` do not use the
+`flutter.` key prefix that `SharedPreferences` uses. Keys are stored and retrieved
+exactly as provided. If you want a prefix, include it in your key names.
+
+The migration copies values from the legacy store into the new store but does not
+remove the original `flutter.`-prefixed entries. After migrating, both the prefixed
+legacy entries and the new unprefixed entries will exist in the platform's storage.
+If you want to remove the legacy entries, do so manually after migration completes.
+
 #### Adding, Removing, or changing prefixes on SharedPreferences
 
 By default, the `SharedPreferences` class will only read (and write) preferences
