@@ -1,5 +1,6 @@
 ## NEXT
 
+* Documents when `getDownloadsDirectory` returns `null` vs throws `UnsupportedError`.
 * Updates minimum supported SDK version to Flutter 3.35/Dart 3.9.
 * Updates README to reflect currently supported OS versions for the latest
   versions of the endorsed platform implementations.

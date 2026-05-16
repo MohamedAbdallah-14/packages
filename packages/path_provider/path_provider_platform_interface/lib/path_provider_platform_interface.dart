@@ -104,7 +104,10 @@ abstract class PathProviderPlatform extends PlatformInterface {
   }
 
   /// Path to the directory where downloaded files can be stored.
-  /// This is typically only relevant on desktop operating systems.
+  ///
+  /// Returns `null` if the platform supports the concept of a downloads
+  /// directory but none is available. Throws an [UnsupportedError] if the
+  /// platform has no concept of a downloads directory.
   Future<String?> getDownloadsPath() {
     throw UnimplementedError('getDownloadsPath() has not been implemented.');
   }

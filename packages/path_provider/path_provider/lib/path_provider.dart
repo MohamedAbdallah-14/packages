@@ -214,11 +214,17 @@ Future<List<Directory>?> getExternalStorageDirectories({
 
 /// Path to the directory where downloaded files can be stored.
 ///
-/// The returned directory is not guaranteed to exist, so clients should verify
-/// that it does before using it, and potentially create it if necessary.
+/// Returns `null` if the platform supports the concept of a downloads
+/// directory but none is available (for example, on Linux when `xdg-user-dir`
+/// is not installed or fails to return a path).
 ///
-/// Throws an [UnsupportedError] if this is not supported on the current
-/// platform.
+/// The returned directory is not guaranteed to exist, so clients should verify
+/// that it does before using it, and potentially create it if necessary. For
+/// example, on Linux the XDG downloads directory may be configured to a path
+/// that does not yet exist.
+///
+/// Throws an [UnsupportedError] if the platform has no concept of a downloads
+/// directory (for example, on Android and iOS).
 Future<Directory?> getDownloadsDirectory() async {
   final String? path = await _platform.getDownloadsPath();
   if (path == null) {
