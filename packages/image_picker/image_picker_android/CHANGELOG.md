@@ -1,3 +1,10 @@
+## 0.8.13+18
+
+* Fixes `pickMedia` on Android allowing non-image/video files when the system
+  photo picker is unavailable. The `ACTION_GET_CONTENT` fallback now passes
+  `Intent.EXTRA_MIME_TYPES` instead of the unrecognized `"CONTENT_TYPE"` extra.
+  See [flutter/flutter#152156](https://github.com/flutter/flutter/issues/152156).
+
 ## 0.8.13+17
 
 * Updates internal implementation to use Kotlin Pigeon.
